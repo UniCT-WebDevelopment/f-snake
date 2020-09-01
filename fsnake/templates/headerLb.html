@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <button onclick="toggleNav()" class="logo" style="background: url(/static/snakelogo.PNG)"></button>
+            <nav>
+                <ul>
+                    <li id="username">{{name}}</li>
+                    {% if current_user.is_authenticated %}
+                        <li><a href="/logout"> logout </a></li>
+                    {% endif %}
+                    <li><a href="/"> home </a></li>
+                    <li><a href="/leaderboard.html"> leaderboard </a></li>
+                    <li><a href="/vsAI.html"> vs AI </a></li>
+                    <li><a href="/AI.html"> AI </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    {% block content %}{% endblock %}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <button onclick="toggleNav()" class="logo" style="background: url(/static/snakelogo.PNG)"></button>
+            <nav>
+                <ul>
+                    <li id="username">{{name}}</li>
+                    {% if current_user.is_authenticated %}
+                        <li><a href="/logout"> logout </a></li>
+                    {% endif %}
+                    <li><a href="/"> home </a></li>
+                    <li><a href="/leaderboard.html"> leaderboard </a></li>
+                    <li><a href="/vsAI.html"> vs AI </a></li>
+                    <li><a href="/AI.html"> AI </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <aside class="nav-sidebar">
+        <span class="nav-side-span">Options</span>
+
+        <div class="range-wrap">
+            <label class="side-lab" for="X">field width:</label>
+            <input class="side-inp" type="range" id="X" name="X" min="260" max="1000" step="20" value="500">
+            <output class="bubble"></output>
+        </div>
+
+        <div class="range-wrap">
+            <label class="side-lab" for="Y">field height:</label>
+            <input class="side-inp" type="range" id="Y" name="Y" min="260" max="700" step="20" value="500">
+            <output class="bubble"></output>
+        </div>
+
+        <div class="range-wrap">
+            <label class="side-lab" for="fps">refresh rate (ms)</label>
+            <input class="side-inp" type="range" id="fps" name="fps" min="40" max="500" step="10" value="50">
+            <output class="bubble"></output>
+        </div>
+
+        <div class="range-wrap">
+            <label class="side-lab" for="favcolor">Select snake color:</label>
+            <input class="side-inp" type="color" id="favcolor" name="favcolor" value="#73B671"><br><br>
+        </div>
+    </aside>
+
+    {% block content %}{% endblock %}

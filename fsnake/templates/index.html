@@ -1,0 +1,17 @@
+{% extends "header.html" %}
+
+{% block content %}
+    <div class="parent_field">
+        <div id="divbtn">
+            <button class="menubtn" id="start" onclick="new_game()">new game</button>
+            <button class="menubtn" id="save_score" onclick="save_score()" style="display: none;">save score</button>
+        </div>
+        <div id="divcanv"><canvas id="field" width="500" height="500"></canvas></div>
+        <div class="div_score"><p id="score"></p></div>
+    </div>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+
+</html>
+
+{% endblock content %}

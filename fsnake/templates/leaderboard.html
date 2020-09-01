@@ -1,0 +1,36 @@
+{% extends "headerLb.html" %}
+
+{% block content %}
+        <div class="parentlb">
+            <div class="box">
+                <h1 class="head">Single Player</h1>
+                {% for usr in x %}
+                    {% if  usr.player.username == name %}
+                        <p><h3 style="text-align: center;"><mark style="background-color: royalblue;">{{usr.player.username}}</mark> : {{usr.score}}</h3></p>
+                    {% else %}
+                        <p><h3 style="text-align: center;">{{usr.player.username}} : {{usr.score}}</h3></p>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="box">
+                <h1 class="head">Versus AI</h1>
+                {% for usr in y %}
+                    {% if  usr.player.username == name %}
+                        <p><h3 style="text-align: center;"><mark style="background-color: royalblue;">{{usr.player.username}}</mark> : {{usr.score}}</h3></p>
+                    {% else %}
+                        <p><h3 style="text-align: center;">{{usr.player.username}} : {{usr.score}}</h3></p>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="box">
+                <h1 class="head">AI</h1>
+                {% for usr in z %}
+                    <p><h3 style="text-align: center;">{{usr.player.username}} : {{usr.score}}</h3></p>
+                {% endfor %}
+            </div>
+        </div>
+        <script src="{{ url_for('static', filename='leaderboard.js') }}"></script>
+    </body>
+
+</html>
+{% endblock content %}
