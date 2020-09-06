@@ -343,22 +343,6 @@ function change_snake_color(ctx){
             imageData.data[i+1]=snake_color.g;
             imageData.data[i+2]=snake_color.b;
         }
-        // else if(imageData.data[i]>101 && imageData.data[i]<111 &&
-        //     imageData.data[i+1]>153 && imageData.data[i+1]<163 && 
-        //     imageData.data[i+2]>99 && imageData.data[i+2]<109){ //second
-        //     // new rgb
-        //     imageData.data[i]=181*(4/5);
-        //     imageData.data[i+1]=54*(4/5);
-        //     imageData.data[i+2]=58*(4/5);
-        // }
-        // else if(imageData.data[i]==76 && 
-        //     imageData.data[i+1]==112 && 
-        //     imageData.data[i+2]==75){ //third
-        //     // new rgb
-        //     imageData.data[i]=181*(5/6);
-        //     imageData.data[i+1]=54*(5/6);
-        //     imageData.data[i+2]=58*(5/6);
-        // }
     }
     ctx.putImageData(imageData,0,0);
 }

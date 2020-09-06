@@ -339,22 +339,6 @@ function change_snake_color(ctx){
             imageData.data[i+1]=snake_color.g;
             imageData.data[i+2]=snake_color.b;
         }
-        // else if(imageData.data[i]>101 && imageData.data[i]<111 &&
-        //     imageData.data[i+1]>153 && imageData.data[i+1]<163 && 
-        //     imageData.data[i+2]>99 && imageData.data[i+2]<109){ //second
-        //     // new rgb
-        //     imageData.data[i]=181*(4/5);
-        //     imageData.data[i+1]=54*(4/5);
-        //     imageData.data[i+2]=58*(4/5);
-        // }
-        // else if(imageData.data[i]==76 && 
-        //     imageData.data[i+1]==112 && 
-        //     imageData.data[i+2]==75){ //third
-        //     // new rgb
-        //     imageData.data[i]=181*(5/6);
-        //     imageData.data[i+1]=54*(5/6);
-        //     imageData.data[i+2]=58*(5/6);
-        // }
     }
     ctx.putImageData(imageData,0,0);
 }
@@ -425,26 +409,6 @@ function new_game(){
             ctx.drawImage(tileimageai, 0*64, 3*64, 64, 64, foodpos[0]*square_dim, foodpos[1]*square_dim, square_dim, square_dim);
         }
         if(needAstar){
-            // if (typeof(Worker) !== "undefined") {
-            //     if (typeof(w) == "undefined") {
-            //         w = new Worker("./static/worker.js");
-            //         w.addEventListener('message', workerMessage);
-            //     }
-            //     var entry = {
-            //         start : [snakeai.position[0], snakeai.position[1]],
-            //         goal : foodpos,
-            //         dir : snakeai.direction,
-            //         body : snakeai.get_body(),
-            //         refreshinterval : refreshinterval,
-            //         field_dimX : field_dimX,
-            //         field_dimY : field_dimY
-            //     };
-            //     w.postMessage(entry);
-            //     function workerMessage(e){
-            //         path = e.data;
-            //         w.terminate();
-            //    }
-            // }
             path = astar([snakeai.position[0], snakeai.position[1]], foodpos, snakeai.direction, snakeai.get_body());
             needAstar = false;
         }
